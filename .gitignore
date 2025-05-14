@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Electron
+dist/
+build/
+out/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor de código
+.vscode/
+.idea/
+
+# Archivos de entorno
+.env
+.env.local
+
+# Electron builder
+release/
+*.exe
+*.dmg
+*.AppImage
+*.snap
+*.msi
+*.deb
+*.rpm
+
+# Otros temporales
+*.log
+*.tmp
+*.swp
+*.swo

@@ -1,0 +1,14 @@
+{
+  "name": "proyecto_escritorio",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon backend/index.js"
+  },
+  "devDependencies": {
+    "electron": "^latest-version",
+    "nodemon": "^latest-version"
+  }
+}

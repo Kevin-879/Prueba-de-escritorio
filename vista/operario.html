@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Estudiantes</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <section id="consulta" class="consult">
+        <h1>Consulta de Estudiantes</h1>
+        <div class="search-bar">
+            <input type="text" id="filtroConsulta" name="filtroConsulta" placeholder="Buscar por número de documento">
+            <button id="consultarBtn"><i class="fas fa-search"></i> Consultar</button>
+            <button id="abrirInsertar"><i class="fas fa-plus"></i> Agregar</button>
+        </div>
+        <div id="resultadoConsulta" class="horizontal-table"></div>
+    </section>
+
+    <!-- Popup para Insertar -->
+    <div id="popupInsertar" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h1>Insertar Estudiante</h1>
+            <form id="insertarForm">
+                <div class="form-group">
+                    <label for="documento">Número de Documento:</label>
+                    <input type="number" id="documento" name="documento" maxlength="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre1">Nombre 1:</label>
+                    <input type="text" id="nombre1" name="nombre1" maxlength="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre2">Nombre 2:</label>
+                    <input type="text" id="nombre2" name="nombre2" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label for="apellido1">Apellido 1:</label>
+                    <input type="text" id="apellido1" name="apellido1" maxlength="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido2">Apellido 2:</label>
+                    <input type="text" id="apellido2" name="apellido2" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" maxlength="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="number" id="telefono" name="telefono" maxlength="10" required>
+                </div>
+                <button type="button" id="cargarCSVBtn">Cargar CSV</button>
+                <input type="file" id="csvFileInput" name="csvFile" accept=".csv" style="display: none;" />
+                <button type="submit" id="insertarBtn">Guardar</button>
+            </form>
+            <div id="resultadoInsercion"></div>
+        </div>
+    </div>
+
+    <script src="./app/operario.js"></script>
+</body>
+</html>

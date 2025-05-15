@@ -22,7 +22,7 @@ export class A_Login {
   configurarMiddleware() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(express.static(path.join(__dirname, 'Front'))); // Carpeta de archivos front
+    this.app.use(express.static(path.join(__dirname, '..', 'vista')));
   }
 
   configurarRutas() {
@@ -30,15 +30,18 @@ export class A_Login {
     this.app.post('/login', async (req, res) => {
       const { email, password } = req.body;
       const db = await abrirBaseDatos();
-      const user = await db.get(`SELECT * FROM usuarios WHERE email = ? AND password = ?`, [email, password]);
+      const user = await db.get(
+        `SELECT * FROM usuarios WHERE email = ? AND password = ?`,
+        [email, password]
+      );
 
       if (!user) return res.status(401).send('Credenciales inválidas');
 
-      // Redirige según el rol
+      // Redirige según el rol (sin incluir /vista)
       if (user.role === 'admin') {
-        res.redirect('../vista/index.html');
+        res.redirect('/index.html');
       } else {
-        res.redirect('../vista/operario.html');
+        res.redirect('/operario.html');
       }
     });
 
@@ -52,7 +55,8 @@ export class A_Login {
           INSERT INTO usuarios (name, email, password, role)
           VALUES (?, ?, ?, ?)
         `, [name, email, password, role || 'operario']);
-        res.redirect('../vista/login.html');
+
+        res.redirect('/login.html'); // También corregido
       } catch (err) {
         console.error(err);
         res.status(400).send('Error al registrar usuario');
@@ -62,7 +66,7 @@ export class A_Login {
 
   iniciar() {
     this.app.listen(this.puerto, () => {
-      console.log(`Servidor de login activo en http://localhost:${this.puerto}`);
+      console.log(`Servidor de login escuchando en el puerto 3005`);
     });
   }
 }

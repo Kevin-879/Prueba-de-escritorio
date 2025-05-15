@@ -20,7 +20,7 @@ function createWindow() {
     }
   });
 
-  win.loadFile(path.join(__dirname, 'vista', 'index.html'));
+  win.loadFile(path.join(__dirname, 'vista', 'login.html'));
 
   win.on('closed', () => {
     win = null;

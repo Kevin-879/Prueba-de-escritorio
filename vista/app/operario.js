@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('consultarBtn').addEventListener('click', buscarDocumento);
     document.getElementById('abrirInsertar').addEventListener('click', () => abrirPopup('popupInsertar'));
+    document.getElementById('dis_login').addEventListener('click', () => {window.location.href = '../login.html';});
     document.getElementById('insertarForm').addEventListener('submit', insertarDocumento);
 
     // Manejo de carga de CSV

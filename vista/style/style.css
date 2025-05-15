@@ -403,3 +403,11 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #218838;
 }
+
+.search-bar button#dis_login {
+  background-color: #dc3545; /* Rojo para el botón de salir */
+}
+
+.search-bar button#dis_login:hover {
+  background-color: #c82333; /* Rojo más oscuro al pasar el cursor */
+}

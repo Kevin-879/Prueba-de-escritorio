@@ -44,14 +44,14 @@ export class A_Login {
 
     // Ruta registro
     this.app.post('/register', async (req, res) => {
-      const { name, email, password } = req.body;
+      const { name, email, password, role } = req.body;
       const db = await abrirBaseDatos();
 
       try {
         await db.run(`
           INSERT INTO usuarios (name, email, password, role)
           VALUES (?, ?, ?, ?)
-        `, [name, email, password, 'operario']);
+        `, [name, email, password, role || 'operario']);
         res.redirect('../vista/login.html');
       } catch (err) {
         console.error(err);

@@ -56,7 +56,7 @@ export class A_Login {
           VALUES (?, ?, ?, ?)
         `, [name, email, password, role || 'operario']);
 
-        res.redirect('/login.html'); // También corregido
+        res.redirect('/login.html');
       } catch (err) {
         console.error(err);
         res.status(400).send('Error al registrar usuario');
